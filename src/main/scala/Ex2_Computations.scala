@@ -45,14 +45,15 @@ object Ex2_Computations {
     showDep(moreNumbers)
 
     moreNumbers.cache()
-    // things in cache can be lost so dependency tree is not discarded
+    // things in cache can be lost but dependency tree is not discarded
+//    缓存中的内容可能会丢失，但依赖关系树不会被丢弃
     println("cached it: the dependencies don't change")
     println(moreNumbers.toDebugString)
     showDep(moreNumbers)
 
     println("has RDD 'moreNumbers' been checkpointed? : " + moreNumbers.isCheckpointed)
     // set moreNumbers up to be checkpointed
-    sc.setCheckpointDir("/tmp/sparkcps")
+    sc.setCheckpointDir("D:\\Life\\")
     moreNumbers.checkpoint()
     // it will only happen after we force the values to be computed
     println("NOW has it been checkpointed? : " + moreNumbers.isCheckpointed)
