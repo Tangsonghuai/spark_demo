@@ -15,8 +15,11 @@ object Accumulation {
     val conf = new SparkConf().setAppName("Accumulation").setMaster("local[4]")
     val sc = new SparkContext(conf)
     val ssc = new StreamingContext(sc, Seconds(1))
+    sc.setLogLevel("error")
 
     var acc = sc.parallelize(Seq(0), 4)
+
+
 
     val qm = new QueueMaker(sc, ssc)
     val stream = qm.inputStream

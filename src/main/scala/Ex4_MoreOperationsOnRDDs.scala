@@ -4,6 +4,7 @@ object Ex4_MoreOperationsOnRDDs {
   def main(args: Array[String]) {
     val conf = new SparkConf().setAppName("Ex4_MoreOperationsOnRDDs").setMaster("local[4]")
     val sc = new SparkContext(conf)
+    sc.setLogLevel("error")
 
     // put some data in an RDD
     val letters = sc.parallelize('a' to 'z', 8)

@@ -7,7 +7,7 @@ object Ex3_CombiningRDDs {
   def main(args: Array[String]) {
     val conf = new SparkConf().setAppName("Ex3_CombiningRDDs").setMaster("local[4]")
     val sc = new SparkContext(conf)
-    //sc.setLogLevel("ERROR")
+    sc.setLogLevel("ERROR")
 
     // put some data in an RDD
     val letters = sc.parallelize('a' to 'z', 8)
